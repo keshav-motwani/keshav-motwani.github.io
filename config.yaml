@@ -1,0 +1,99 @@
+baseURL: https://keshav-motwani.github.io/
+title: Keshav Motwani
+theme: hugo-coder
+languageCode: en
+defaultContentLanguage: en
+paginate: 20
+pygmentsStyle: b2
+pygmentsCodeFences: yes
+pygmentsCodeFencesGuessSyntax: yes
+disqusShortname: yourdiscussshortname
+params:
+  author: Keshav Motwani
+  avatarURL: images/avatar.jpg
+  cloudflare:
+    token: token
+  colorScheme: white
+  csp:
+    childsrc: '''self'''
+    fontsrc:
+      - '''self'''
+      - https://fonts.gstatic.com
+      - https://cdn.jsdelivr.net/
+    formaction: '''self'''
+    framesrc: '''self'''
+    imgsrc: '''self'''
+    objectsrc: '''none'''
+    prefetchsrc: '''self'''
+    scriptsrc:
+      - '''self'''
+      - '''unsafe-inline'''
+      - https://www.google-analytics.com
+    stylesrc:
+      - '''self'''
+      - '''unsafe-inline'''
+      - https://fonts.googleapis.com/
+      - https://cdn.jsdelivr.net/
+  customCSS: []
+  customJS: []
+  customSCSS: []
+  dateFormat: January 2, 2006
+  description: Keshav Motwani's personal website
+  enableTwemoji: yes
+  fathomAnalytics:
+    serverURL: analytics.example.com
+    siteID: ABCDE
+  goatCounter:
+    code: code
+  googleTagManager:
+    id: gid
+  hideColorSchemeToggle: no
+  hideCopyright: yes
+  hideCredits: yes
+  hideFooter: no
+  info: Mathematics and Statistics Student
+  keywords: blog,developer,personal
+  matomo:
+    serverURL: analytics.example.com
+    siteID: ABCDE
+  maxSeeAlsoItems: 5
+  plausibleAnalytics:
+    domain: example.com
+    serverURL: analytics.example.com
+  rtl: no
+  since: 2021
+  social:
+    - icon: fa fa-github
+      name: Github
+      url: https://github.com/keshav-motwani/
+      weight: 1
+    - icon: fa fa-twitter
+      name: Twitter
+      url: https://twitter.com/keshav_motwani/
+      weight: 3
+    - icon: fa fa-linkedin
+      name: LinkedIn
+      url: https://www.linkedin.com/in/keshav-motwani/
+      weight: 4
+taxonomies:
+  author: authors
+  category: categories
+  series: series
+  tag: tags
+languages:
+  en:
+    languageName: English
+    menu:
+      main:
+        - name: About
+          url: about/
+          weight: 1
+        - name: Blog
+          url: posts/
+          weight: 2
+        - name: Projects
+          url: projects/
+          weight: 3
+        - name: Contact me
+          url: contact/
+          weight: 5

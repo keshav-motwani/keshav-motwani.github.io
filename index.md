@@ -13,4 +13,4 @@ In the past I've worked with [Todd Brusko](https://bruskolab.diabetes.ufl.edu/) 
 
 You can see some of my work on my [Google Scholar](https://scholar.google.com/citations?user=8AhTuSEAAAAJ&hl=en) profile and my [Github](https://github.com/keshav-motwani) page.
 
-My CV is available [here](keshav-motwani.github.io/CV.pdf).
+My CV is available [here](https://keshav-motwani.github.io/CV.pdf).

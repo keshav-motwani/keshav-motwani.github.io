@@ -12,3 +12,5 @@ I am currently working with [Aaron Molstad](https://ajmolstad.github.io/) and [R
 In the past I've worked with [Todd Brusko](https://bruskolab.diabetes.ufl.edu/) and [Victor Greiff](https://greifflab.org/) on analyzing and developing software for immune receptor sequencing and single-cell genomics data in the context of type 1 diabetes. 
 
 You can see some of my work on my [Google Scholar](https://scholar.google.com/citations?user=8AhTuSEAAAAJ&hl=en) profile and my [Github](https://github.com/keshav-motwani) page.
+
+My CV is available [here](keshav-motwani.github.io/CV.pdf).

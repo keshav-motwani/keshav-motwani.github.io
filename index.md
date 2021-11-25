@@ -18,7 +18,7 @@ My CV is available [here](https://keshav-motwani.github.io/CV.pdf).
 
 
 **Submitted Manuscripts & Preprints**
-1. **Keshav Motwani**, Rhonda Bacher, and Aaron J Molstad. Binned multinomial logistic regression for integrative cell type annotation. _arXiv, submitted to Annals of Applied Statistics_, 2021 [Paper](https://keshav-motwani.github.io/IBMR_arXiv_v0.pdf), [Software](https://github.com/keshav-motwani/IBMR/)
+1. **Keshav Motwani**, Rhonda Bacher, and Aaron J Molstad. Binned multinomial logistic regression for integrative cell type annotation. _arXiv, submitted to Annals of Applied Statistics_, 2021 [Paper](https://arxiv.org/abs/2111.12149), [Software](https://github.com/keshav-motwani/IBMR/)
 2. Chakravarthi Kanduri, Milena Pavlovic, Lonneke Scheffer, **Keshav Motwani**, Maria Chernigovskaya, Victor Greiff, and Geir Kjetil Sandve. Profiling the baseline performance and limits of machine learning models for adaptive immune receptor repertoire classification. _bioRxiv, submitted to Bioinformatics_, 2021 [Paper](https://www.biorxiv.org/content/10.1101/2021.05.23.445346v2)
 
 **Publications**

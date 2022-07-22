@@ -3,23 +3,21 @@
 <img align="right" src="keshav_headshot.jpg" width="273.6" height="410.4" alt="Keshav Motwani headshot">
 
 
-I am an undergraduate student at the University of Florida majoring in Mathematics and Statistics. 
+I am an incoming PhD student in biostatistics at the University of Washington, funded by an NSF Graduate Research Fellowship.
 
-My research interests are broadly in high-dimensional statistical learning and numerical optimization motivated by applications in genomics.
+My research interests are broadly in high-dimensional statistical learning and inference motivated by applications in genomics.
 
-I am currently working with [Aaron Molstad](https://ajmolstad.github.io/) and [Rhonda Bacher](https://www.rhondabacher.com/) to develop model-based statistical methods for integrating many single-cell genomics datasets for prediction tasks. Specifically, we are working on a integrative multinomial logsitic regression model for developing a classifier from multiple datasets in which labels are available in differing levels of detail across datasets, as is common for cell types in single-cell genomics data. The goal is to predict categories at the greatest level of detail on new data.
-
-In the past I've worked with [Todd Brusko](https://bruskolab.diabetes.ufl.edu/) and [Victor Greiff](https://greifflab.org/) on analyzing and developing software for immune receptor sequencing and single-cell genomics data in the context of type 1 diabetes. 
+I did my undergraduate degree at the University of Florida in mathematics and statistics. I worked with [Aaron Molstad](https://ajmolstad.github.io/) and [Rhonda Bacher](https://www.rhondabacher.com/) to develop model-based statistical methods for integrating many single-cell genomics datasets for prediction tasks. Specifically, we developed on a integrative multinomial logsitic regression model for developing a classifier from multiple datasets in which labels are available in differing levels of detail across datasets, as is common for cell types in single-cell genomics data, with the goal of predicting categories at the greatest level of detail on new data. I also worked with [Todd Brusko](https://bruskolab.diabetes.ufl.edu/) and [Victor Greiff](https://greifflab.org/) on analyzing and developing software for immune receptor sequencing and single-cell genomics data in the context of type 1 diabetes. 
 
 You can see some of my work on my [Google Scholar](https://scholar.google.com/citations?user=8AhTuSEAAAAJ&hl=en) profile and my [Github](https://github.com/keshav-motwani) page.
 
 My CV is available [here](https://keshav-motwani.github.io/CV.pdf).
 
 
-
 **Submitted Manuscripts & Preprints**
-1. **Keshav Motwani**, Rhonda Bacher, and Aaron J Molstad. Binned multinomial logistic regression for integrative cell type annotation. _arXiv, submitted to Annals of Applied Statistics_, 2021 [Paper](https://arxiv.org/abs/2111.12149), [Software](https://github.com/keshav-motwani/IBMR/)
-2. Chakravarthi Kanduri, Milena Pavlovic, Lonneke Scheffer, **Keshav Motwani**, Maria Chernigovskaya, Victor Greiff, and Geir Kjetil Sandve. Profiling the baseline performance and limits of machine learning models for adaptive immune receptor repertoire classification. _bioRxiv, submitted to Bioinformatics_, 2021 [Paper](https://www.biorxiv.org/content/10.1101/2021.05.23.445346v2)
+1. Aaron J Molstad and **Keshav Motwani**. Multiresolution categorical regression for interpretable cell type annotation. _Submitted_, 2021 [Software](https://github.com/ajmolstad/HierMultinom/)
+2. **Keshav Motwani**, Rhonda Bacher, and Aaron J Molstad. Binned multinomial logistic regression for integrative cell type annotation. _arXiv, submitted to Annals of Applied Statistics_, 2021 [Paper](https://arxiv.org/abs/2111.12149), [Software](https://github.com/keshav-motwani/IBMR/)
+3. Chakravarthi Kanduri, Milena Pavlovic, Lonneke Scheffer, **Keshav Motwani**, Maria Chernigovskaya, Victor Greiff, and Geir Kjetil Sandve. Profiling the baseline performance and limits of machine learning models for adaptive immune receptor repertoire classification. _bioRxiv, submitted to Bioinformatics_, 2021 [Paper](https://www.biorxiv.org/content/10.1101/2021.05.23.445346v2)
 
 **Publications**
 1. Milena Pavlovic, Lonneke Scheffer, **Keshav Motwani**, Chakravarthi Kanduri, Radmila Kompova, Nikolay Vazov, Knut Waagan, Fabian LM Bernal, Alexandre Almeida Costa, Brian Corrie, and others. immuneML: an ecosystem for machine learning analysis of adaptive immune receptor repertoires. _Nature Machine Intelligence_, 2021 [Paper](https://www.nature.com/articles/s42256-021-00413-z), [Software](https://immuneml.uio.no/)

@@ -243,6 +243,7 @@ if (window.hljs) {
 
 
 
+
 <style type="text/css">
 .main-container {
   max-width: 940px;
@@ -263,6 +264,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -357,7 +361,7 @@ pre code {
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>As described in the paper, the log-likelihood contribution for the <span class="math inline">\(i\)</span>th observation in the <span class="math inline">\(k\)</span>th dataset can be expressed as <span class="math display">\[
-l_{(k)i}(\boldsymbol{\alpha}, \boldsymbol{\beta}, \boldsymbol{\gamma}_{(k)}) =  \sum_{j \in \mathcal{C}_k} \mathbb{1}(y_{(k)i} = j) \log \left( \sum_{l \in g_k(j)}\frac{{\rm exp}(\boldsymbol{\alpha}_l + \boldsymbol{x}_{(k)i}^\top \boldsymbol{\beta}_{l}  + \boldsymbol{z}_{(k)i}^\top \boldsymbol{\gamma}_{(k)l})}{\sum_{v \in \mathcal{C}} {\rm exp}(\boldsymbol{\alpha}_{v} + \boldsymbol{x}_{(k)i}^\top \boldsymbol{\beta}_{v} + \boldsymbol{z}_{(k)i}^\top \boldsymbol{\gamma}_{(k)v})} \right),
+  l_{(k)i}(\boldsymbol{\alpha}, \boldsymbol{\beta}, \boldsymbol{\gamma}_{(k)}) =  \sum_{j \in \mathcal{C}_k} \mathbb{1}(y_{(k)i} = j) \log \left( \sum_{l \in g_k(j)}\frac{{\rm exp}(\boldsymbol{\alpha}_l + \boldsymbol{x}_{(k)i}^\top \boldsymbol{\beta}_{l}  + \boldsymbol{z}_{(k)i}^\top \boldsymbol{\gamma}_{(k)l})}{\sum_{v \in \mathcal{C}} {\rm exp}(\boldsymbol{\alpha}_{v} + \boldsymbol{x}_{(k)i}^\top \boldsymbol{\beta}_{v} + \boldsymbol{z}_{(k)i}^\top \boldsymbol{\gamma}_{(k)v})} \right),
 \]</span> where <span class="math inline">\(y_{(k)i}\)</span> is the observed category, <span class="math inline">\(\boldsymbol{x}_{(k)i}\)</span> are the predictors thought to correspond to the outcome, and <span class="math inline">\(\boldsymbol{z}_{(k)i}\)</span> are the predictors related to dataset-specific noise, like batch effects for example. Also, as a reminder, <span class="math inline">\(\mathcal{C}_k\)</span> denotes the set of labels for the <span class="math inline">\(k\)</span>th dataset, <span class="math inline">\(\mathcal{C}\)</span> denotes the set of finest resolution categories across datasets, and <span class="math inline">\(g_k\)</span> is the “unbinning” function relating labels in <span class="math inline">\(\mathcal{C}_k\)</span> to subsets of categories in <span class="math inline">\(\mathcal{C}\)</span>.</p>
 <p>The IBMR estimator is then defined as <span class="math display">\[\operatorname*{arg \ min}_{(\boldsymbol{\alpha}, \boldsymbol{\beta}, \boldsymbol{\gamma}) \in\mathcal{T} } \left\{\mathcal{L}(\boldsymbol{\alpha}, \boldsymbol{\beta}, \boldsymbol{\gamma}) + \lambda \sum_{j=1}^p \|\boldsymbol{\beta}_{j,:}\|_2 \hspace{3pt} + \hspace{3pt}\frac{\rho}{2}\sum_{k=1}^K \|\boldsymbol{\gamma}_{(k)}\|_F^2\right\},\]</span> where <span class="math display">\[\mathcal{L}(\boldsymbol{\alpha}, \boldsymbol{\beta}, \boldsymbol{\gamma}) = - \frac{1}{N} \sum_{k = 1}^{K} \sum_{i = 1}^{n_k} l_{(k)i}(\boldsymbol{\alpha}, \boldsymbol{\beta}, \boldsymbol{\gamma}_{(k)})\]</span> is the negative log-likelihood.</p>
 <p>The package can be installed from GitHub as follows:</p>
@@ -370,7 +374,6 @@ library(IBMR)</code></pre>
 <p>The package has some built-in functions for simulating data. We use these functions in order to focus on package usage rather than a specific data generating model, but the interested reader can look at the source code of these functions for the details.</p>
 <p>First, we set the seed for reproducibility and set the number of predictors to be <span class="math inline">\(500\)</span>, with <span class="math inline">\(100\)</span> important predictors, and a total of <span class="math inline">\(1000\)</span> observations from 2 datasets with different labels.</p>
 <pre class="r"><code>set.seed(1)
-
 p = 500
 nonzero = 100
 n = rep(500, 2)</code></pre>
@@ -441,7 +444,7 @@ Y_list_test = simulate_Y_list(category_mappings$categories, list(setNames(nm = c
                              X_list_validation = X_list_val,
                              verbose = FALSE)})</code></pre>
 <pre><code>##    user  system elapsed 
-##  23.407   0.074   5.891</code></pre>
+##  12.450   0.057  12.520</code></pre>
 <pre class="r"><code>system.time({IBMR_NG_fit = IBMR_no_Gamma(Y_list = Y_list,
                                          categories = category_mappings$categories,
                                          category_mappings = category_mappings$category_mappings,
@@ -451,7 +454,7 @@ Y_list_test = simulate_Y_list(category_mappings$categories, list(setNames(nm = c
                                          X_list_validation = X_list_val,
                                          verbose = FALSE)})</code></pre>
 <pre><code>##    user  system elapsed 
-##   1.708   0.000   0.437</code></pre>
+##   0.828   0.004   0.832</code></pre>
 <pre class="r"><code>system.time({subset_fit = subset(Y_list = Y_list,
                                  categories = category_mappings$categories,
                                  category_mappings = category_mappings$category_mappings,
@@ -462,7 +465,7 @@ Y_list_test = simulate_Y_list(category_mappings$categories, list(setNames(nm = c
                                  verbose = FALSE)})</code></pre>
 <pre><code>## [1] &quot;Keeping 485 observations out of a total of 1000&quot;</code></pre>
 <pre><code>##    user  system elapsed 
-##   0.859   0.000   0.224</code></pre>
+##   0.325   0.000   0.326</code></pre>
 <pre class="r"><code>system.time({relabel_fit = relabel(Y_list = Y_list,
                                    categories = category_mappings$categories,
                                    category_mappings = category_mappings$category_mappings,
@@ -473,7 +476,7 @@ Y_list_test = simulate_Y_list(category_mappings$categories, list(setNames(nm = c
                                    verbose = FALSE)})</code></pre>
 <pre><code>## [1] &quot;Keeping 485 observations out of a total of 1000&quot;</code></pre>
 <pre><code>##    user  system elapsed 
-##   2.248   0.004   0.573</code></pre>
+##   0.935   0.003   0.938</code></pre>
 <p>These functions take in the validation data in order to select tuning parameters based on validation set negative log-likelihood. We use the selected models and evaluate error rate on the test dataset now.</p>
 <pre class="r"><code>mean(Y_list_test[[1]] != predict_categories(predict_probabilities(IBMR_fit$best_model, X_list_test))[[1]])</code></pre>
 <pre><code>## [1] 0.2738</code></pre>
@@ -484,6 +487,318 @@ Y_list_test = simulate_Y_list(category_mappings$categories, list(setNames(nm = c
 <pre class="r"><code>mean(Y_list_test[[1]] != predict_categories(predict_probabilities(relabel_fit$best_model, X_list_test))[[1]])</code></pre>
 <pre><code>## [1] 0.3019</code></pre>
 <p>We can see how IBMR-int does slightly better than IBMR-NG, as it accounts for the batch effect. However, subset does much, much worse, with an error rate nearly 13% worse than IBMR-NG. relabel does much better than subset, but around 2% worse than IBMR-NG also.</p>
+</div>
+<div id="application-to-single-cell-rna-seq-cell-type-annotation" class="section level2">
+<h2>Application to single-cell RNA-seq cell type annotation</h2>
+<p>We now provide an example of how to use this package on single-cell RNA-seq data. For this, we will need to have the following packages installed: SingleCellExperiment, Seurat, and AnnotatedPBMC. We obtain four datasets from the AnnotatedPBMC package, and fit a cell type annotation model using two of these datasets, validate on one dataset, and evaluate performance on one dataset, even though the labels are inconsistent.</p>
+<p>First, we write a few functions to prepare the data for use in the IBMR package. These functions obtain and cache data from AnnotatedPBMC (which provides data in the form of SingleCellExperiment objects), subset genes (if specified), subsample the cells (if specified), and define the binning functions we use for this example.</p>
+<pre class="r"><code>prepare_hao_2020 = function(cache_path, genes = NA, n_sample = NA, sce = FALSE) {
+
+  data = AnnotatedPBMC::get_hao_2020(cache_path)
+
+  SingleCellExperiment::altExp(data) = NULL
+  if (!sce) SingleCellExperiment::counts(data) = NULL
+
+  if (!is.na(genes)) {
+    data = data[genes, ]
+  }
+
+  data$cell_type = ifelse(data$cell_type_2 == &quot;Treg&quot;, data$cell_type_3, data$cell_type_2)
+
+  removed_labels = &quot;*Proliferating*&quot;
+  data = data[, !grepl(removed_labels, data$cell_type)]
+  attr(data, &quot;removed_labels&quot;) = removed_labels
+
+  data = data[, uniform_sample(data$cell_type, ifelse(is.na(n_sample), ncol(data), n_sample))]
+
+  binning_function = c(
+    ASDC = &quot;ASDC&quot;,
+    `B intermediate` = &quot;B intermediate&quot;,
+    `B memory` = &quot;B memory&quot;,
+    `B naive` = &quot;B naive&quot;,
+    `CD14 Mono` = &quot;CD14 Mono&quot;,
+    `CD16 Mono` = &quot;CD16 Mono&quot;,
+    `CD4 CTL` = &quot;CD4 CTL&quot;,
+    `CD4 Naive` = &quot;CD4 Naive&quot;,
+    `CD4 TCM` = &quot;CD4 TCM&quot;,
+    `CD4 TEM` = &quot;CD4 TEM&quot;,
+    `CD8 Naive` = &quot;CD8 Naive&quot;,
+    `CD8 TCM` = &quot;CD8 TCM&quot;,
+    `CD8 TEM` = &quot;CD8 TEM&quot;,
+    cDC1 = &quot;cDC1&quot;,
+    cDC2 = &quot;cDC2&quot;,
+    dnT = &quot;dnT&quot;,
+    Eryth = &quot;Eryth&quot;,
+    gdT = &quot;gdT&quot;,
+    HSPC = &quot;HSPC&quot;,
+    ILC = &quot;ILC&quot;,
+    MAIT = &quot;MAIT&quot;,
+    NK = &quot;NK&quot;,
+    NK_CD56bright = &quot;NK_CD56bright&quot;,
+    pDC = &quot;pDC&quot;,
+    Plasmablast = &quot;Plasmablast&quot;,
+    Platelet = &quot;Platelet&quot;,
+    `Treg Memory` = &quot;Treg Memory&quot;,
+    `Treg Naive` = &quot;Treg Naive&quot;
+  )
+
+  return(prepare_dataset_output(data, binning_function, sce))
+
+}
+
+prepare_10x_pbmc_5k_v3 = function(cache_path, genes = NA, n_sample = NA, sce = FALSE) {
+  
+  data = AnnotatedPBMC::get_10x_pbmc_5k_v3(cache_path)
+  
+  if (!is.na(genes)) {
+    data = data[genes, ]
+  }
+  
+  data$cell_type = data$cell_type_2
+  
+  removed_labels = &quot;intermediate monocyte&quot;
+  data = data[, data$cell_type != removed_labels]
+  
+  data = data[, uniform_sample(data$cell_type, ifelse(is.na(n_sample), ncol(data), n_sample))]
+  
+  binning_function = c(
+    ASDC = &quot;DCs&quot;,
+    `B intermediate` = &quot;unobserved&quot;,
+    `B memory` = &quot;memory B&quot;,
+    `B naive` = &quot;naive B&quot;,
+    `CD14 Mono` = &quot;classical monocyte&quot;,
+    `CD16 Mono` = &quot;non-classical CD16+ monocyte&quot;,
+    `CD4 CTL` = &quot;unobserved&quot;,
+    `CD4 Naive` = &quot;naive CD4&quot;,
+    `CD4 TCM` = &quot;memory CD4&quot;,
+    `CD4 TEM` = &quot;memory CD4&quot;,
+    `CD8 Naive` = &quot;naive CD8&quot;,
+    `CD8 TCM` = &quot;memory CD8&quot;,
+    `CD8 TEM` = &quot;memory CD8&quot;,
+    cDC1 = &quot;DCs&quot;,
+    cDC2 = &quot;DCs&quot;,
+    dnT = &quot;unobserved&quot;,
+    Eryth = &quot;unobserved&quot;,
+    gdT = &quot;unobserved&quot;,
+    HSPC = &quot;unobserved&quot;,
+    ILC = &quot;unobserved&quot;,
+    MAIT = &quot;unobserved&quot;,
+    NK = &quot;CD16+ NK&quot;,
+    NK_CD56bright = &quot;CD16- NK&quot;,
+    pDC = &quot;DCs&quot;,
+    Plasmablast = &quot;unobserved&quot;,
+    Platelet = &quot;unobserved&quot;,
+    `Treg Memory` = &quot;Treg&quot;,
+    `Treg Naive` = &quot;Treg&quot;
+  )
+  
+  return(prepare_dataset_output(data, binning_function, sce))
+  
+}
+
+prepare_10x_pbmc_10k = function(cache_path, genes = NA, n_sample = NA, sce = FALSE) {
+  
+  data = AnnotatedPBMC::get_10x_pbmc_10k(cache_path)
+  
+  if (!is.na(genes)) {
+    data = data[genes, ]
+  }
+  
+  data$cell_type = data$cell_type_2
+  
+  removed_labels = &quot;intermediate monocyte&quot;
+  data = data[, data$cell_type != removed_labels]
+
+  data = data[, uniform_sample(data$cell_type, ifelse(is.na(n_sample), ncol(data), n_sample))]
+  
+  binning_function = c(
+    ASDC = &quot;unobserved&quot;,
+    `B intermediate` = &quot;B&quot;,
+    `B memory` = &quot;B&quot;,
+    `B naive` = &quot;B&quot;,
+    `CD14 Mono` = &quot;classical monocyte&quot;,
+    `CD16 Mono` = &quot;unobserved&quot;,
+    `CD4 CTL` = &quot;unobserved&quot;,
+    `CD4 Naive` = &quot;naive CD4&quot;,
+    `CD4 TCM` = &quot;memory CD4&quot;,
+    `CD4 TEM` = &quot;memory CD4&quot;,
+    `CD8 Naive` = &quot;naive CD8&quot;,
+    `CD8 TCM` = &quot;memory CD8&quot;,
+    `CD8 TEM` = &quot;memory CD8&quot;,
+    cDC1 = &quot;unobserved&quot;,
+    cDC2 = &quot;unobserved&quot;,
+    dnT = &quot;unobserved&quot;,
+    Eryth = &quot;unobserved&quot;,
+    gdT = &quot;unobserved&quot;,
+    HSPC = &quot;unobserved&quot;,
+    ILC = &quot;unobserved&quot;,
+    MAIT = &quot;unobserved&quot;,
+    NK = &quot;CD16+ NK&quot;,
+    NK_CD56bright = &quot;CD16- NK&quot;,
+    pDC = &quot;unobserved&quot;,
+    Plasmablast = &quot;B&quot;,
+    Platelet = &quot;unobserved&quot;,
+    `Treg Memory` = &quot;Treg&quot;,
+    `Treg Naive` = &quot;Treg&quot;
+  )
+
+  return(prepare_dataset_output(data, binning_function, sce))
+  
+}
+
+prepare_ding_2019 = function(cache_path, genes = NA, n_sample = NA, sce = FALSE) {
+  
+  data = AnnotatedPBMC::get_ding_2019(cache_path)
+  
+  if (!is.na(genes)) {
+    data = data[genes, ]
+  }
+  
+  removed_labels = c(&quot;Megakaryocyte&quot;)
+  data = data[, grepl(&quot;10x&quot;, data$method) &amp; !(data$cell_type %in% removed_labels)]
+  
+  data = data[, uniform_sample(data$cell_type, ifelse(is.na(n_sample), ncol(data), n_sample))]
+  
+  binning_function = c(
+    ASDC = &quot;Dendritic cell&quot;,
+    `B intermediate` = &quot;B cell&quot;,
+    `B memory` = &quot;B cell&quot;,
+    `B naive` = &quot;B cell&quot;,
+    `CD14 Mono` = &quot;CD14+ monocyte&quot;,
+    `CD16 Mono` = &quot;CD16+ monocyte&quot;,
+    `CD4 CTL` = &quot;CD4+ T cell&quot;,
+    `CD4 Naive` = &quot;CD4+ T cell&quot;,
+    `CD4 TCM` = &quot;CD4+ T cell&quot;,
+    `CD4 TEM` = &quot;CD4+ T cell&quot;,
+    `CD8 Naive` = &quot;Cytotoxic T cell&quot;,
+    `CD8 TCM` = &quot;Cytotoxic T cell&quot;,
+    `CD8 TEM` = &quot;Cytotoxic T cell&quot;,
+    cDC1 = &quot;Dendritic cell&quot;,
+    cDC2 = &quot;Dendritic cell&quot;,
+    dnT = &quot;unobserved&quot;,
+    Eryth = &quot;unobserved&quot;,
+    gdT = &quot;unobserved&quot;,
+    HSPC = &quot;unobserved&quot;,
+    ILC = &quot;unobserved&quot;,
+    MAIT = &quot;unobserved&quot;,
+    NK = &quot;Natural killer cell&quot;,
+    NK_CD56bright = &quot;Natural killer cell&quot;,
+    pDC = &quot;Plasmacytoid dendritic cell&quot;,
+    Plasmablast = &quot;B cell&quot;,
+    Platelet = &quot;unobserved&quot;,
+    `Treg Memory` = &quot;CD4+ T cell&quot;,
+    `Treg Naive` = &quot;CD4+ T cell&quot;
+  )
+  
+  return(prepare_dataset_output(data, binning_function, sce))
+  
+}</code></pre>
+<p>In the above functions, we need a few helper functions which we define here. These functions subsample cells, convert binning functions into category mappings (which are referred to as unbinning functions in the paper), and do some data extraction from the prepared data.</p>
+<pre class="r"><code>uniform_sample = function(Y, n) {
+  
+  indices = sample(1:length(Y), min(n, length(Y)))
+  
+  return(indices)
+  
+}
+
+binning_function_to_category_mapping = function(binning_function) {
+  
+  category_mapping = list()
+  for (label in unique(binning_function)) {
+    category_mapping[[label]] = names(binning_function)[which(binning_function == label)]
+  }
+  
+  return(category_mapping)
+  
+}
+
+prepare_dataset_output = function(data, binning_function, sce) {
+  
+  if (sce) return(list(sce = data, binning_function = binning_function))
+  
+  data = list(data)
+  
+  X_list = lapply(data, function(x) t(as.matrix(SingleCellExperiment::logcounts(x))))
+  Y_list = lapply(data, function(x) as.character(x$cell_type))
+
+  category_mapping = binning_function_to_category_mapping(binning_function)
+  
+  return(list(Y_list = Y_list, X_list = X_list, categories = names(binning_function), category_mappings = replicate(length(Y_list), category_mapping, simplify = FALSE), inverse_category_mappings = replicate(length(Y_list), binning_function, simplify = FALSE)))
+  
+}</code></pre>
+<p>Finally, we obtain the data:</p>
+<pre class="r"><code>cache_path = &quot;../AnnotatedPBMC/data&quot;
+data = list()
+data[[&quot;hao_2020&quot;]] = prepare_hao_2020(cache_path = cache_path, genes = NA, n_sample = NA, sce = TRUE)
+data[[&quot;10x_pbmc_10k&quot;]] = prepare_10x_pbmc_10k(cache_path = cache_path, genes = NA, n_sample = NA, sce = TRUE)
+data[[&quot;ding_2019&quot;]] = prepare_ding_2019(cache_path = cache_path, genes = NA, n_sample = NA, sce = TRUE)
+data[[&quot;10x_pbmc_5k_v3&quot;]] = prepare_10x_pbmc_5k_v3(cache_path = cache_path, genes = NA, n_sample = NA, sce = TRUE)</code></pre>
+<p>Now, we need to do variable screening. We use the default method in Seurat on each dataset separately, and average the ranks, and take the top 100. We also only keep 5000 cells from each of the two training dataset.</p>
+<pre class="r"><code>select_genes = function(sce_list) {
+  
+  genes = Reduce(intersect, lapply(sce_list, rownames))
+  sce_list = lapply(sce_list, function(x) x[genes, ])
+  ranks = sapply(sce_list, function(x) rank(-1 * Seurat::FindVariableFeatures(SummarizedExperiment::assay(x, &quot;logcounts&quot;))$vst.variance.standardized))
+  genes = genes[order(rowMeans(ranks))][1:500]
+  
+  return(genes)
+  
+}
+
+genes = select_genes(lapply(data, `[[`, &quot;sce&quot;))
+
+set.seed(1)
+data[[&quot;hao_2020&quot;]] = prepare_hao_2020(cache_path = cache_path, genes = genes, n_sample = 5000, sce = FALSE)
+data[[&quot;10x_pbmc_10k&quot;]] = prepare_10x_pbmc_10k(cache_path = cache_path, genes = genes, n_sample = 5000, sce = FALSE)
+data[[&quot;ding_2019&quot;]] = prepare_ding_2019(cache_path = cache_path, genes = genes, n_sample = NA, sce = FALSE)
+data[[&quot;10x_pbmc_5k_v3&quot;]] = prepare_10x_pbmc_5k_v3(cache_path = cache_path, genes = genes, n_sample = NA, sce = FALSE)</code></pre>
+<p>Now, we can extract the data for use in IBMR, and fit the model! We illustrate IBMR-NG since it provides the best tradeoff between accuracy and computation time, as demonstrated in our paper.</p>
+<pre class="r"><code>Y_list = unlist(lapply(data, `[[`, &quot;Y_list&quot;), recursive = FALSE)
+X_list = unlist(lapply(data, `[[`, &quot;X_list&quot;), recursive = FALSE)
+category_mappings = unlist(lapply(data, `[[`, &quot;category_mappings&quot;), recursive = FALSE)
+categories = data[[&quot;hao_2020&quot;]]$categories
+
+system.time({IBMR_NG_fit = IBMR_no_Gamma(Y_list = Y_list[1:2],
+                                         categories = categories,
+                                         category_mappings = category_mappings[1:2],
+                                         X_list = X_list[1:2],
+                                         Y_list_validation = Y_list[3],
+                                         category_mappings_validation = category_mappings[3],
+                                         X_list_validation = X_list[3],
+                                         verbose = 0)})</code></pre>
+<pre><code>##    user  system elapsed 
+## 123.812   0.078 123.888</code></pre>
+<pre class="r"><code>system.time({subset_fit = subset(Y_list = Y_list[1:2],
+                                 categories = categories,
+                                 category_mappings = category_mappings[1:2],
+                                 X_list = X_list[1:2],
+                                 Y_list_validation = Y_list[3],
+                                 category_mappings_validation = category_mappings[3],
+                                 X_list_validation = X_list[3],
+                                 verbose = 0)})</code></pre>
+<pre><code>## [1] &quot;Keeping 8058 observations out of a total of 10000&quot;</code></pre>
+<pre><code>##    user  system elapsed 
+##  93.305   0.073  93.377</code></pre>
+<pre class="r"><code>system.time({relabel_fit = relabel(Y_list = Y_list[1:2],
+                                   categories = categories,
+                                   category_mappings = category_mappings[1:2],
+                                   X_list = X_list[1:2],
+                                   Y_list_validation = Y_list[3],
+                                   category_mappings_validation = category_mappings[3],
+                                   X_list_validation = X_list[3],
+                                   verbose = 0)})</code></pre>
+<pre><code>## [1] &quot;Keeping 8058 observations out of a total of 10000&quot;</code></pre>
+<pre><code>##    user  system elapsed 
+## 213.849   0.143 213.986</code></pre>
+<p>We now look at the error rate of these three methods on the test dataset.</p>
+<pre class="r"><code>mean(Y_list[[4]] != predict_categories(predict_probabilities(IBMR_NG_fit$best_model, X_list[4]), category_mappings[4])[[1]])</code></pre>
+<pre><code>## [1] 0.1067031</code></pre>
+<pre class="r"><code>mean(Y_list[[4]] != predict_categories(predict_probabilities(subset_fit$best_model, X_list[4]), category_mappings[4])[[1]])</code></pre>
+<pre><code>## [1] 0.129275</code></pre>
+<pre class="r"><code>mean(Y_list[[4]] != predict_categories(predict_probabilities(relabel_fit$best_model, X_list[4]), category_mappings[4])[[1]])</code></pre>
+<pre><code>## [1] 0.1056772</code></pre>
+<p>In this particular (simple) example, we can see that IBMR-NG and relabel do the best, with IBMR-NG taking nearly half the time to fit. subset performs poorly, as it can only use 80% of the data. In cases where more datasets are used for training, this percentage drops, making the subset model worse (and subsequently the relabel model), which can be seen in our paper.</p>
 </div>
 <div id="notes" class="section level2">
 <h2>Notes</h2>

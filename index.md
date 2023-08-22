@@ -28,8 +28,8 @@ and Jacob Bien. Generalized data thinning using sufficient statistics. _arXiv_, 
 
 Methods
 1. Aaron J Molstad and **Keshav Motwani**. Multiresolution categorical regression for
-interpretable cell type annotation. _In press at Biometrics_, 2022 [Paper](https://arxiv.org/abs/2208.13857), [Software](https://github.com/ajmolstad/HierMultinom/)
-2. **Keshav Motwani**, Rhonda Bacher, and Aaron J Molstad. Binned multinomial logistic regression for integrative cell type annotation. _In press at Annals of Applied Statistics_, 2021 [Paper](https://arxiv.org/abs/2111.12149), [Software](https://github.com/keshav-motwani/IBMR/)
+interpretable cell type annotation. _In press at Biometrics_, 2023 [Paper](https://arxiv.org/abs/2208.13857), [Software](https://github.com/ajmolstad/HierMultinom/)
+2. **Keshav Motwani**, Rhonda Bacher, and Aaron J Molstad. Binned multinomial logistic regression for integrative cell type annotation. _In press at Annals of Applied Statistics_, 2023 [Paper](https://arxiv.org/abs/2111.12149), [Software](https://github.com/keshav-motwani/IBMR/)
 
 Applied
 1. Melanie R Shapiro, Xiaoru Dong, Daniel Perry, James M McNichols, Puchong Thirawatananond, Amanda L Posgai, Leeana Peters, **Keshav Motwani**, Richard Musca, Andrew Muir, and others. Human immune phenotyping reveals accelerated aging in type 1 diabetes. _JCI Insight_, 2023 [Paper](https://insight.jci.org/articles/view/170767)

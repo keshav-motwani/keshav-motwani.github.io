@@ -13,7 +13,7 @@ I did my undergraduate degree at the University of Florida in mathematics and st
 
 You can see some of my work on my [Google Scholar](https://scholar.google.com/citations?user=8AhTuSEAAAAJ&hl=en) profile and my [Github](https://github.com/keshav-motwani) page.
 
-My CV is available [here](https://keshav-motwani.github.io/CV.pdf).
+My CV is available [here](https://github.com/keshav-motwani/CV/blob/master/CV.pdf).
 
 
 **Preprints and Submitted Manuscripts**

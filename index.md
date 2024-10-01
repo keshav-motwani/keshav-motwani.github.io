@@ -17,12 +17,12 @@ My CV is available [here](https://github.com/keshav-motwani/CV/blob/master/CV.pd
 
 Methods
 1. **Keshav Motwani** and Daniela Witten. Revisiting valid inference after prediction. _Journal of Machine Learning Research_,
-2023 [Paper]([https://www.jmlr.org/papers/v24/23-0896.html](https://www.jmlr.org/papers/v24/23-0896.html)), [Code](https://github.com/keshav-motwani/PredictionBasedInference)
+2023 [Paper](https://www.jmlr.org/papers/v24/23-0896.html), [Code](https://github.com/keshav-motwani/PredictionBasedInference)
 2. Ameer Dharamshi, Anna Neufeld, **Keshav Motwani**, Lucy L Gao, Daniela Witten,
-and Jacob Bien. Generalized data thinning using sufficient statistics. _Journal of the American Statistical Association_, 2024 [Paper](https://arxiv.org/abs/2303.12931)
+and Jacob Bien. Generalized data thinning using sufficient statistics. _Journal of the American Statistical Association_, 2024 [Paper](https://www.tandfonline.com/doi/full/10.1080/01621459.2024.2353948)
 3. Aaron J Molstad and **Keshav Motwani**. Multiresolution categorical regression for
-interpretable cell type annotation. _In press at Biometrics_, 2023 [Paper](https://arxiv.org/abs/2208.13857), [Software](https://github.com/ajmolstad/HierMultinom/)
-4. **Keshav Motwani**, Rhonda Bacher, and Aaron J Molstad. Binned multinomial logistic regression for integrative cell type annotation. _In press at Annals of Applied Statistics_, 2023 [Paper](https://arxiv.org/abs/2111.12149), [Software](https://github.com/keshav-motwani/IBMR/)
+interpretable cell type annotation. _In press at Biometrics_, 2023 [Paper](https://onlinelibrary.wiley.com/doi/abs/10.1111/biom.13926), [Software](https://github.com/ajmolstad/HierMultinom/)
+4. **Keshav Motwani**, Rhonda Bacher, and Aaron J Molstad. Binned multinomial logistic regression for integrative cell type annotation. _In press at Annals of Applied Statistics_, 2023 [Paper](https://projecteuclid.org/journals/annals-of-applied-statistics/volume-17/issue-4/Binned-multinomial-logistic-regression-for-integrative-cell-type-annotation/10.1214/23-AOAS1769.full), [Software](https://github.com/keshav-motwani/IBMR/)
 
 Applied
 1. Melanie R Shapiro, Xiaoru Dong, Daniel Perry, James M McNichols, Puchong Thirawatananond, Amanda L Posgai, Leeana Peters, **Keshav Motwani**, Richard Musca, Andrew Muir, and others. Human immune phenotyping reveals accelerated aging in type 1 diabetes. _JCI Insight_, 2023 [Paper](https://insight.jci.org/articles/view/170767)

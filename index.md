@@ -17,7 +17,7 @@ My CV is available [here](https://github.com/keshav-motwani/CV/blob/master/CV.pd
 
 Methods
 1. **Keshav Motwani** and Daniela Witten. Revisiting valid inference after prediction. _Journal of Machine Learning Research_,
-2023 [Paper]([https://arxiv.org/abs/2306.13746](https://www.jmlr.org/papers/v24/23-0896.html)), [Code](https://github.com/keshav-motwani/PredictionBasedInference)
+2023 [Paper]([https://www.jmlr.org/papers/v24/23-0896.html](https://www.jmlr.org/papers/v24/23-0896.html)), [Code](https://github.com/keshav-motwani/PredictionBasedInference)
 2. Ameer Dharamshi, Anna Neufeld, **Keshav Motwani**, Lucy L Gao, Daniela Witten,
 and Jacob Bien. Generalized data thinning using sufficient statistics. _Journal of the American Statistical Association_, 2024 [Paper](https://arxiv.org/abs/2303.12931)
 3. Aaron J Molstad and **Keshav Motwani**. Multiresolution categorical regression for

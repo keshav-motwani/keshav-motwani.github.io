@@ -3,11 +3,9 @@
 <img align="right" src="keshav_headshot.jpg" width="273.6" height="410.4" alt="Keshav Motwani headshot">
  
 
-I am a second-year PhD student in biostatistics at the University of Washington, funded by an NSF Graduate Research Fellowship.
+I am a third-year PhD student in biostatistics at the University of Washington, funded by an NSF Graduate Research Fellowship.
 
-My research interests are broadly in high-dimensional statistical learning and inference motivated by applications in genomics.
-
-I am currently working with Ali Shojaie and Eardi Lila on computationally efficient methods to estimate covariance components in multivariate mixed models. I am also working with Daniela Witten on inference after using a machine learning model to predict the outcome variable of interest and data thinning, an alternative to sample splitting in unsupervised settings. 
+I am currently working with Ali Shojaie and Eardi Lila on methods for high-dimensional statistical learning and inference for dependent data settings, with applications to neuroimaging data. In my first project I developed a  efficient method to estimate covariance matrices in multivariate mixed models. I previously worked with Daniela Witten on inference after using a machine learning model to predict the outcome variable of interest and data thinning, an alternative to sample splitting in unsupervised settings. 
 
 I did my undergraduate degree at the University of Florida in mathematics and statistics. I worked with [Aaron Molstad](https://ajmolstad.github.io/) and [Rhonda Bacher](https://www.rhondabacher.com/) on high-dimensional multinomial regression with multiresolution/hierarchical categories. I also worked with [Todd Brusko](https://bruskolab.diabetes.ufl.edu/) and [Victor Greiff](https://greifflab.org/) on analyzing and developing software for immune receptor sequencing and single-cell genomics data in the context of type 1 diabetes. 
 
@@ -15,21 +13,16 @@ You can see some of my work on my [Google Scholar](https://scholar.google.com/ci
 
 My CV is available [here](https://github.com/keshav-motwani/CV/blob/master/CV.pdf).
 
-
-**Preprints and Submitted Manuscripts**
-
-Methods
-1. **Keshav Motwani** and Daniela Witten. Valid inference after prediction. _arXiv_,
-2023 [Paper](https://arxiv.org/abs/2306.13746), [Code](https://github.com/keshav-motwani/PredictionBasedInference)
-2. Ameer Dharamshi, Anna Neufeld, **Keshav Motwani**, Lucy L Gao, Daniela Witten,
-and Jacob Bien. Generalized data thinning using sufficient statistics. _arXiv_, 2023 [Paper](https://arxiv.org/abs/2303.12931)
-
 **Publications**
 
 Methods
-1. Aaron J Molstad and **Keshav Motwani**. Multiresolution categorical regression for
+1. **Keshav Motwani** and Daniela Witten. Revisiting valid inference after prediction. _Journal of Machine Learning Research_,
+2023 [Paper]([https://arxiv.org/abs/2306.13746](https://www.jmlr.org/papers/v24/23-0896.html)), [Code](https://github.com/keshav-motwani/PredictionBasedInference)
+2. Ameer Dharamshi, Anna Neufeld, **Keshav Motwani**, Lucy L Gao, Daniela Witten,
+and Jacob Bien. Generalized data thinning using sufficient statistics. _Journal of the American Statistical Association_, 2024 [Paper](https://arxiv.org/abs/2303.12931)
+3. Aaron J Molstad and **Keshav Motwani**. Multiresolution categorical regression for
 interpretable cell type annotation. _In press at Biometrics_, 2023 [Paper](https://arxiv.org/abs/2208.13857), [Software](https://github.com/ajmolstad/HierMultinom/)
-2. **Keshav Motwani**, Rhonda Bacher, and Aaron J Molstad. Binned multinomial logistic regression for integrative cell type annotation. _In press at Annals of Applied Statistics_, 2023 [Paper](https://arxiv.org/abs/2111.12149), [Software](https://github.com/keshav-motwani/IBMR/)
+4. **Keshav Motwani**, Rhonda Bacher, and Aaron J Molstad. Binned multinomial logistic regression for integrative cell type annotation. _In press at Annals of Applied Statistics_, 2023 [Paper](https://arxiv.org/abs/2111.12149), [Software](https://github.com/keshav-motwani/IBMR/)
 
 Applied
 1. Melanie R Shapiro, Xiaoru Dong, Daniel Perry, James M McNichols, Puchong Thirawatananond, Amanda L Posgai, Leeana Peters, **Keshav Motwani**, Richard Musca, Andrew Muir, and others. Human immune phenotyping reveals accelerated aging in type 1 diabetes. _JCI Insight_, 2023 [Paper](https://insight.jci.org/articles/view/170767)

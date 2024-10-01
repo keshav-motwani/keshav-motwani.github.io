@@ -5,7 +5,7 @@
 
 I am a third-year PhD student in biostatistics at the University of Washington, funded by an NSF Graduate Research Fellowship.
 
-I am currently working with Ali Shojaie and Eardi Lila on methods for high-dimensional statistical learning and inference for dependent data settings, with applications to neuroimaging data. In my first project I developed a  efficient method to estimate covariance matrices in multivariate mixed models. I previously worked with Daniela Witten on inference after using a machine learning model to predict the outcome variable of interest and data thinning, an alternative to sample splitting in unsupervised settings. 
+I am currently working with Ali Shojaie and Eardi Lila on methods for high-dimensional statistical learning and inference for dependent data settings, with applications to neuroimaging data. In my first project I developed an  efficient method to estimate covariance matrices in multivariate mixed models. I previously worked with Daniela Witten on inference after using a machine learning model to predict the outcome variable of interest and data thinning, an alternative to sample splitting in unsupervised settings. 
 
 I did my undergraduate degree at the University of Florida in mathematics and statistics. I worked with [Aaron Molstad](https://ajmolstad.github.io/) and [Rhonda Bacher](https://www.rhondabacher.com/) on high-dimensional multinomial regression with multiresolution/hierarchical categories. I also worked with [Todd Brusko](https://bruskolab.diabetes.ufl.edu/) and [Victor Greiff](https://greifflab.org/) on analyzing and developing software for immune receptor sequencing and single-cell genomics data in the context of type 1 diabetes. 
 
